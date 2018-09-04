@@ -1,7 +1,6 @@
 package io.github.antoniovizuete.pojospreadsheet.core.model;
 
 import io.github.antoniovizuete.pojospreadsheet.utils.iterator.IntegerIndex;
-import io.github.antoniovizuete.pojospreadsheet.core.RowImpl;
 import io.github.antoniovizuete.pojospreadsheet.core.image.Image;
 
 import java.util.List;
@@ -248,27 +247,27 @@ public interface Sheet extends IntegerIndex {
    * @param numCells the num cells
    * @return the sheet
    */
-  Sheet mergeCell(RowImpl row, Cell cell, int numCells);
+  Sheet mergeCell(Row row, Cell cell, int numCells);
 
   /**
    * Merge row sheet.
    *
    * @param rowIndex    the row index
    * @param columnIndex the column index
-   * @param numCells    the num cells
+   * @param numRows    the num cells
    * @return the sheet
    */
-  Sheet mergeRow(int rowIndex, int columnIndex, int numCells);
+  Sheet mergeRow(int rowIndex, int columnIndex, int numRows);
 
   /**
    * Merge row sheet.
    *
    * @param row      the row
    * @param cell     the cell
-   * @param numCells the num cells
+   * @param numRows the num cells
    * @return the sheet
    */
-  Sheet mergeRow(RowImpl row, Cell cell, int numCells);
+  Sheet mergeRow(Row row, Cell cell, int numRows);
 
   /**
    * Merge region sheet.

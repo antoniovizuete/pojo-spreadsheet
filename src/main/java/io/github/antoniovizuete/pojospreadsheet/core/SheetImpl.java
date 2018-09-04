@@ -216,7 +216,7 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Adds the passed {@link Image} to the sheet.
    *
-   * @param image
+   * @param image the image
    * @return the current instance.
    */
   @Override public Sheet addImage(Image image) {
@@ -242,7 +242,7 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Adds the passed {@link TextBoxImpl} to the sheet.
    *
-   * @param textBox
+   * @param textBox the text box
    * @return the current instance.
    */
   @Override public Sheet createTextBox(TextBox textBox) {
@@ -269,9 +269,9 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Merges the indicated cells.
    *
-   * @param rowIndex
-   * @param columnIndex
-   * @param numCells
+   * @param rowIndex the index of row
+   * @param columnIndex the index of column
+   * @param numCells the number of cells to be merged
    * @return the current instance.
    */
   @Override public Sheet mergeCell(int rowIndex, int columnIndex, int numCells) {
@@ -283,12 +283,12 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Merges the indicated cells.
    *
-   * @param row
-   * @param cell
-   * @param numCells
+   * @param row the row
+   * @param cell the cell
+   * @param numCells the number of cells to be merged
    * @return the current instance.
    */
-  @Override public Sheet mergeCell(RowImpl row, Cell cell, int numCells) {
+  @Override public Sheet mergeCell(Row row, Cell cell, int numCells) {
     CellRegion cellRegion =
       CellRegion.newInstance(cell.getIndex(), row.getIndex(), cell.getIndex() + --numCells, row.getIndex());
     addMergedRegion(cellRegion);
@@ -298,13 +298,13 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Merges the indicated rows.
    *
-   * @param rowIndex
-   * @param columnIndex
-   * @param numCells
+   * @param rowIndex the index of row
+   * @param columnIndex the index of column
+   * @param numRows the number of rows to be merged
    * @return the current instance.
    */
-  @Override public Sheet mergeRow(int rowIndex, int columnIndex, int numCells) {
-    CellRegion cellRegion = CellRegion.newInstance(columnIndex, rowIndex, columnIndex, rowIndex + --numCells);
+  @Override public Sheet mergeRow(int rowIndex, int columnIndex, int numRows) {
+    CellRegion cellRegion = CellRegion.newInstance(columnIndex, rowIndex, columnIndex, rowIndex + --numRows);
     addMergedRegion(cellRegion);
     return this;
   }
@@ -312,14 +312,14 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Merges the indicated rows.
    *
-   * @param row
-   * @param cell
-   * @param numCells
+   * @param row the row
+   * @param cell the cell
+   * @param numRows the number of rows to be merged
    * @return the current instance.
    */
-  @Override public Sheet mergeRow(RowImpl row, Cell cell, int numCells) {
+  @Override public Sheet mergeRow(Row row, Cell cell, int numRows) {
     CellRegion cellRegion =
-      CellRegion.newInstance(cell.getIndex(), row.getIndex(), cell.getIndex(), row.getIndex() + numCells);
+      CellRegion.newInstance(cell.getIndex(), row.getIndex(), cell.getIndex(), row.getIndex() + numRows);
     addMergedRegion(cellRegion);
     return this;
   }
@@ -337,7 +337,7 @@ public class SheetImpl extends AbstractIntegerSet<Row> implements Sheet {
   /**
    * Merges the indicated {@link CellRegionImpl}
    *
-   * @param region
+   * @param region the region
    * @return the current instance.
    */
   @Override public Sheet mergeRegion(CellRegion region) {

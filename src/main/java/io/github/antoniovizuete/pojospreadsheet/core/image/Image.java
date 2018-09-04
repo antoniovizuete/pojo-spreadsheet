@@ -47,6 +47,7 @@ public interface Image {
 
   /**
    * Set the {@link ImageType} of an Image.
+   * @param type the type
    */
   void setType(ImageType type);
 
@@ -55,6 +56,7 @@ public interface Image {
    * <p>Set the {@link CellAddress}.</p>
    * <p>And it returns the instance.</p>
    *
+   * @param cellAddress the address
    * @return the instance of current object ({@link Image})
    */
   Image address(CellAddress cellAddress);
@@ -64,6 +66,7 @@ public interface Image {
    * <p> Set the {@link ImageType} of an Image.</p>
    * <p>And it returns the instance.</p>
    *
+   * @param  type the image type
    * @return the instance of current object ({@link Image})
    */
   Image type(ImageType type);
@@ -72,7 +75,7 @@ public interface Image {
    * The method returns the Image resource converted into byte array.
    *
    * @return Image byte array, or byte[0] if none
-   * @throws IOException
+   * @throws IOException treats the resource
    */
   byte[] getResource() throws IOException;
 }
