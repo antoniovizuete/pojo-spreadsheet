@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * The type SpreadsheetDecoration.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */

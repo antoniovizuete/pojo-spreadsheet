@@ -9,7 +9,7 @@ import java.util.Objects;
 
 
 /**
- * Prototype class that represents the POI Printing set-up.
+ * Class that represents the POI Printing set-up.
  *
  * @author Antonio Vizuete
  * @since 0.1

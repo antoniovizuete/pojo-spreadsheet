@@ -4,13 +4,14 @@ import io.github.antoniovizuete.pojospreadsheet.core.decoration.keys.CellStyleKe
 
 /**
  * Default CellStyle key.
- * @author  Antonio Vizuete
- * @since   0.1
+ *
+ * @author Antonio Vizuete
+ * @since 0.1
  */
 public enum DefaultCellStyle implements CellStyleKey {
-    DEFAULT_CELL_STYLE;
+  DEFAULT_CELL_STYLE;
 
-    @Override public CellStyleKey getKey() {
-        return this;
-    }
+  @Override public CellStyleKey getKey() {
+    return this;
+  }
 }

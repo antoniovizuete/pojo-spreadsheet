@@ -19,34 +19,24 @@ import org.apache.poi.ss.usermodel.VerticalAlignment;
  */
 abstract class AbstractCellStyle<T extends Styleable> implements Styleable<T> {
 
-  /** The Instance. */
   private T instance;
 
-  /** The Background color. */
   private ColorKey backgroundColor;
 
-  /** The Font. */
   private FontKey font;
 
-  /** The Align. */
   private HorizontalAlignment align;
 
-  /** The Vertical align. */
   private VerticalAlignment verticalAlign;
 
-  /** The Format. */
   private FormatKey format;
 
-  /** The Border top. */
   private BorderKey borderTop;
 
-  /** The Border right. */
   private BorderKey borderRight;
 
-  /** The Border bottom. */
   private BorderKey borderBottom;
 
-  /** The Border left. */
   private BorderKey borderLeft;
 
   @Override public T backgroundColor(ColorKey color) {

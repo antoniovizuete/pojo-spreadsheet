@@ -10,17 +10,26 @@ import io.github.antoniovizuete.pojospreadsheet.core.model.helpers.CellRegionHel
  * @author Antonio Vizuete
  * @since 0.1
  */
-
 public final class CellRegionBuilder {
   private CellAddress start;
   private CellAddress end;
 
   private CellRegionBuilder() { /* Private default constructor */ }
 
+  /**
+   * Builder instance cell region builder.
+   *
+   * @return the cell region builder
+   */
   public static CellRegionBuilder builderInstance() {
     return new CellRegionBuilder();
   }
 
+  /**
+   * Build cell region.
+   *
+   * @return the cell region
+   */
   public CellRegion build() {
     final CellRegion cellRegion = new CellRegionImpl();
     cellRegion.setStart(start);
@@ -28,6 +37,12 @@ public final class CellRegionBuilder {
     return cellRegion;
   }
 
+  /**
+   * Range cell region builder.
+   *
+   * @param range the range
+   * @return the cell region builder
+   */
   public CellRegionBuilder range(String range) {
     CellRegion cellRegion = CellRegionHelper.rangeToCellRegion(range);
     this.setStart(cellRegion.getStart());
@@ -35,11 +50,23 @@ public final class CellRegionBuilder {
     return this;
   }
 
+  /**
+   * Start cell region builder.
+   *
+   * @param start the start
+   * @return the cell region builder
+   */
   public CellRegionBuilder start(CellAddress start) {
     this.setStart(start);
     return this;
   }
 
+  /**
+   * End cell region builder.
+   *
+   * @param end the end
+   * @return the cell region builder
+   */
   public CellRegionBuilder end(CellAddress end) {
     this.setEnd(end);
     return this;

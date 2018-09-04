@@ -14,12 +14,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
+ * Package-protected class that read an excel workbook and coverts it to {@link Spreadsheet}.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */
 class Reader {
 
-  public Spreadsheet readWorkbook(String path) {
+  Spreadsheet readWorkbook(String path) {
     final File file = new File(path);
     if(!file.exists()) {
       throw new IllegalStateException( "File \"" + path + "\" doesn't exist.");

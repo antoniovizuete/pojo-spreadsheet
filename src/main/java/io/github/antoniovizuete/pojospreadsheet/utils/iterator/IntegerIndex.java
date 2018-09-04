@@ -1,8 +1,16 @@
 package io.github.antoniovizuete.pojospreadsheet.utils.iterator;
 
 /**
- * Created by avizuete on 22/02/2017.
+ * The interface Integer index.
+ *
+ * @author Antonio Vizuete
+ * @since 0.1
  */
 public interface IntegerIndex {
-    Integer getIndex();
+  /**
+   * Gets index.
+   *
+   * @return the index
+   */
+  Integer getIndex();
 }

@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
+ * The type SpreadsheetFileWriter.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */
@@ -19,27 +21,58 @@ class SpreadsheetFileWriter extends AbstractWriter {
 
   private File outputFile;
 
+  /**
+   * Instantiates a new Spreadsheet file writer.
+   *
+   * @param outputFile the output file
+   */
   public SpreadsheetFileWriter(File outputFile) {
     this.outputFile = outputFile;
   }
 
+  /**
+   * Instantiates a new Spreadsheet file writer.
+   *
+   * @param path     the path
+   * @param fileName the file name
+   */
   public SpreadsheetFileWriter(String path, String fileName) {
     this.path = path;
     this.fileName = fileName;
   }
 
+  /**
+   * Instantiates a new Spreadsheet file writer.
+   *
+   * @param fileName the file name
+   */
   public SpreadsheetFileWriter(String fileName) {
     this.fileName = fileName;
   }
 
+  /**
+   * Sets path.
+   *
+   * @param path the path
+   */
   public void setPath(String path) {
     this.path = path;
   }
 
+  /**
+   * Sets file name.
+   *
+   * @param fileName the file name
+   */
   public void setFileName(String fileName) {
     this.fileName = fileName;
   }
 
+  /**
+   * Sets output file.
+   *
+   * @param outputFile the output file
+   */
   public void setOutputFile(File outputFile) {
     this.outputFile = outputFile;
   }

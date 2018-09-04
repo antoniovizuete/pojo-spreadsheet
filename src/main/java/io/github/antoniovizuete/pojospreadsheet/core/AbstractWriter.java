@@ -44,6 +44,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * The type Abstract spreadsheet.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */

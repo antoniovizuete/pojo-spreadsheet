@@ -3,8 +3,22 @@ package io.github.antoniovizuete.pojospreadsheet.core.converter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- * Created by avizuete on 31/05/2017.
+ * The interface PoiConverter.
+ *
+ * @param <T> the target type parameter
+ * @param <K> the key type parameter
+ *
+ * @author Antonio Vizuete
+ * @since 0.1
  */
 public interface PoiConverter<T, K> {
-    T getPoiValue(XSSFWorkbook xssfWorkbook, K k);
+
+  /**
+   * Gets poi value.
+   *
+   * @param xssfWorkbook the xssf workbook
+   * @param k            the key
+   * @return the poi value
+   */
+  T getPoiValue(XSSFWorkbook xssfWorkbook, K k);
 }

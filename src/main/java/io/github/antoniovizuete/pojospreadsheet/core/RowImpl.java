@@ -7,6 +7,7 @@ import io.github.antoniovizuete.pojospreadsheet.core.model.Row;
 import io.github.antoniovizuete.pojospreadsheet.core.model.Sheet;
 import io.github.antoniovizuete.pojospreadsheet.core.model.helpers.CellAddressHelper;
 
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -31,23 +32,8 @@ public class RowImpl extends AbstractIntegerSet<Cell> implements IntegerIndex, R
     this.index = index;
   }
 
-  @Override public Set<Cell> cells() { return set; }
-
-  @Override public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
-      return false;
-
-    RowImpl cells = (RowImpl) o;
-
-    return index.equals(cells.index);
-
-  }
-
-  @Override public int hashCode() {
-    return index.hashCode();
-  }
+  @Override
+  public Set<Cell> cells() { return set; }
 
   /**
    * Internal purpose method.
@@ -168,5 +154,20 @@ public class RowImpl extends AbstractIntegerSet<Cell> implements IntegerIndex, R
 
   public Integer getIndex() {
     return this.index;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
+    RowImpl row = (RowImpl) o;
+    return Objects.equals(sheet, row.sheet) && Objects.equals(index, row.index);
+  }
+
+  @Override public int hashCode() {
+
+    return Objects.hash(sheet, index);
   }
 }

@@ -42,8 +42,8 @@ public class ColorImpl implements Color {
 
       final String auxColor = transform(color);
 
-      IntStream.range(0, colorBytes.length).forEach(i ->
-        colorBytes[i] = Integer.valueOf(auxColor.substring(i*2, (i+1)*2), 16).byteValue());
+      IntStream.range(0, colorBytes.length)
+        .forEach(i -> colorBytes[i] = Integer.valueOf(auxColor.substring(i * 2, (i + 1) * 2), 16).byteValue());
     }
     return colorBytes;
   }
@@ -68,8 +68,8 @@ public class ColorImpl implements Color {
 
       final String color = transform(this.hexRGB);
 
-      IntStream.range(0, intArray.length).forEach(i ->
-        intArray[i] = Integer.valueOf(color.substring(i*2, (i+1)*2), 16));
+      IntStream.range(0, intArray.length)
+        .forEach(i -> intArray[i] = Integer.valueOf(color.substring(i * 2, (i + 1) * 2), 16));
     }
     return new java.awt.Color(intArray[R], intArray[G], intArray[B]);
   }

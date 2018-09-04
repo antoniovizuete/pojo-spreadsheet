@@ -11,42 +11,41 @@ import java.io.IOException;
  * <p>It represents an image to place into a {@link SheetImpl}.
  * Requires the resource path.
  * </p>
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */
 public final class ImageInputStream extends AbstractImage implements Image {
-	private String path;
+  private String path;
 
-    public ImageInputStream(String path, CellAddress cellAddress) {
-		super(cellAddress);
-		this.path = path;
-	}
-	
-	public ImageInputStream(String path, CellAddress cellAddress, Type type) {
-		super(cellAddress, type);
-		this.path = path;
-	}
-	
-	public byte[] getResource() throws IOException {
-		return IOUtils.toByteArray(this.getClass().getResourceAsStream(this.getPath()));
-	}
+  public ImageInputStream(String path, CellAddress cellAddress) {
+    super(cellAddress);
+    this.path = path;
+  }
 
-    private String getPath() {
-        return path;
-    }
+  public ImageInputStream(String path, CellAddress cellAddress, ImageType type) {
+    super(cellAddress, type);
+    this.path = path;
+  }
 
-    /**
-     * Sets the resource path.
-     * @param path Path to image resource
-     */
-    public void setPath(String path) {
-        this.path = path;
-    }
+  public byte[] getResource() throws IOException {
+    return IOUtils.toByteArray(this.getClass().getResourceAsStream(this.getPath()));
+  }
 
-    @Override
-    public String toString() {
-        return "ImageInputStream[" +
-                "'" + path + "'@" +getCellAddress().toString()+
-                ']';
-    }
+  private String getPath() {
+    return path;
+  }
+
+  /**
+   * Sets the resource path.
+   *
+   * @param path Path to image resource
+   */
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  @Override public String toString() {
+    return "ImageInputStream[" + "'" + path + "'@" + getCellAddress().toString() + ']';
+  }
 }

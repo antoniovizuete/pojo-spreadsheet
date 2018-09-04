@@ -125,9 +125,9 @@ public class FontImpl implements Font {
     if (o == null || getClass() != o.getClass())
       return false;
     FontImpl font = (FontImpl) o;
-    return Objects.equals(bold, font.bold) && underline == font.underline && Objects
-      .equals(italic, font.italic) && Objects.equals(height, font.height) && Objects.equals(fontName, font.fontName)
-      && typeOffset == font.typeOffset && Objects.equals(color, font.color);
+    return Objects.equals(bold, font.bold) && underline == font.underline && Objects.equals(italic, font.italic)
+      && Objects.equals(height, font.height) && Objects.equals(fontName, font.fontName) && typeOffset == font.typeOffset
+      && Objects.equals(color, font.color);
   }
 
   @Override public int hashCode() {

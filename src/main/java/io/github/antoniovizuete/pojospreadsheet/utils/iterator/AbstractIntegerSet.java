@@ -6,9 +6,16 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Created by avizuete on 22/02/2017.
+ * The type Abstract integer set.
+ *
+ * @param <T> the type parameter
+ * @author Antonio Vizuete
+ * @since 0.1
  */
 public abstract class AbstractIntegerSet<T extends IntegerIndex> implements IntegerSet<T> {
+  /**
+   * The Set.
+   */
   protected Set<T> set = new HashSet<>();
 
   public T add() {

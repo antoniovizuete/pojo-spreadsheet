@@ -6,6 +6,8 @@ import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
+ * ConverterColor
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */
@@ -13,7 +15,7 @@ class ConverterColor implements PoiConverter<XSSFColor, ColorKey> {
 
   private SpreadsheetDecoration decoration;
 
-  public ConverterColor(SpreadsheetDecoration decoration) {
+  ConverterColor(SpreadsheetDecoration decoration) {
     this.decoration = decoration;
   }
 

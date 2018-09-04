@@ -8,6 +8,13 @@ import io.github.antoniovizuete.pojospreadsheet.core.decoration.keys.FormatKey;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 
+/**
+ * The interface Styleable.
+ *
+ * @param <T> the type parameter
+ * @author Antonio Vizuete
+ * @since 0.1
+ */
 public interface Styleable<T> {
   /**
    * Sets the background color and return the current instance.
@@ -119,41 +126,136 @@ public interface Styleable<T> {
    */
   T borders(BorderKey border, BorderKey border2, BorderKey border3, BorderKey border4);
 
+  /**
+   * Gets background color.
+   *
+   * @return the background color
+   */
   ColorKey getBackgroundColor();
 
+  /**
+   * Gets font.
+   *
+   * @return the font
+   */
   FontKey getFont();
 
+  /**
+   * Gets align.
+   *
+   * @return the align
+   */
   HorizontalAlignment getAlign();
 
+  /**
+   * Gets vertical align.
+   *
+   * @return the vertical align
+   */
   VerticalAlignment getVerticalAlign();
 
+  /**
+   * Gets format.
+   *
+   * @return the format
+   */
   FormatKey getFormat();
 
+  /**
+   * Gets border top.
+   *
+   * @return the border top
+   */
   BorderKey getBorderTop();
 
+  /**
+   * Gets border right.
+   *
+   * @return the border right
+   */
   BorderKey getBorderRight();
 
+  /**
+   * Gets border bottom.
+   *
+   * @return the border bottom
+   */
   BorderKey getBorderBottom();
 
+  /**
+   * Gets border left.
+   *
+   * @return the border left
+   */
   BorderKey getBorderLeft();
 
+  /**
+   * Sets instance.
+   *
+   * @param instance the instance
+   */
   void setInstance(T instance);
 
+  /**
+   * Sets background color.
+   *
+   * @param backgroundColor the background color
+   */
   void setBackgroundColor(ColorKey backgroundColor);
 
+  /**
+   * Sets font.
+   *
+   * @param font the font
+   */
   void setFont(FontKey font);
 
+  /**
+   * Sets align.
+   *
+   * @param align the align
+   */
   void setAlign(HorizontalAlignment align);
 
+  /**
+   * Sets vertical align.
+   *
+   * @param verticalAlign the vertical align
+   */
   void setVerticalAlign(VerticalAlignment verticalAlign);
 
+  /**
+   * Sets format.
+   *
+   * @param format the format
+   */
   void setFormat(FormatKey format);
 
+  /**
+   * Sets border top.
+   *
+   * @param borderTop the border top
+   */
   void setBorderTop(BorderKey borderTop);
 
+  /**
+   * Sets border right.
+   *
+   * @param borderRight the border right
+   */
   void setBorderRight(BorderKey borderRight);
 
+  /**
+   * Sets border bottom.
+   *
+   * @param borderBottom the border bottom
+   */
   void setBorderBottom(BorderKey borderBottom);
 
+  /**
+   * Sets border left.
+   *
+   * @param borderLeft the border left
+   */
   void setBorderLeft(BorderKey borderLeft);
 }

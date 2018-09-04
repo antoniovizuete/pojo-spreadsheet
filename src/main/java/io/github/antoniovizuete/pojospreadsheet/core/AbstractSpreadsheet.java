@@ -8,12 +8,9 @@ import io.github.antoniovizuete.pojospreadsheet.core.model.Spreadsheet;
 
 import java.util.Set;
 
+
 /**
- * This class is the main EXA-Spreadsheet class. It must be instantiated
- * through "SpreadsheetBuilder#getBuilder()".
- *
- * <p>EXA-Spreadsheet wraps Apache POI 3.14 up. In order to make more
- * simply the develops related with POI.</p>
+ * The type Abstract spreadsheet.
  *
  * @author Antonio Vizuete
  * @since 0.1
@@ -38,18 +35,39 @@ public class AbstractSpreadsheet extends AbstractIntegerSet<Sheet> implements Sp
     return new SheetImpl(index);
   }
 
+  /**
+   * Is from reader boolean.
+   *
+   * @return the boolean
+   */
   public Boolean isFromReader() {
     return fromReader;
   }
 
+  /**
+   * Sets from reader.
+   *
+   * @param fromReader the from reader
+   */
   public void setFromReader(Boolean fromReader) {
     this.fromReader = fromReader;
   }
 
+  /**
+   * Add sheet sheet.
+   *
+   * @return the sheet
+   */
   public Sheet addSheet() {
     return super.add();
   }
 
+  /**
+   * Add sheet sheet.
+   *
+   * @param index the index
+   * @return the sheet
+   */
   public Sheet addSheet(Integer index) {
     return super.add(index);
   }

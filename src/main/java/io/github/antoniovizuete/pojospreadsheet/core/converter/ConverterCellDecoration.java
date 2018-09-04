@@ -22,6 +22,8 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
+ * ConverterCellDecoration.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */

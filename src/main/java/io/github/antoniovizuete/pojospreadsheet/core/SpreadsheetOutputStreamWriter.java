@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
+ * The type SpreadsheetOutputStreamWriter.
+ *
  * @author Antonio Vizuete
  * @since 0.1
  */
