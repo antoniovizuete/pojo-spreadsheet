@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author Antonio Vizuete
  * @since 0.1
  */
-class SpreadsheetFileWriter extends AbstractWriter {
+class SpreadsheetFileOutputStreamWriter extends AbstractWriter<FileOutputStream> {
 
   private String path;
   private String fileName;
@@ -26,7 +26,7 @@ class SpreadsheetFileWriter extends AbstractWriter {
    *
    * @param outputFile the output file
    */
-  public SpreadsheetFileWriter(File outputFile) {
+  public SpreadsheetFileOutputStreamWriter(File outputFile) {
     this.outputFile = outputFile;
   }
 
@@ -36,7 +36,7 @@ class SpreadsheetFileWriter extends AbstractWriter {
    * @param path     the path
    * @param fileName the file name
    */
-  public SpreadsheetFileWriter(String path, String fileName) {
+  public SpreadsheetFileOutputStreamWriter(String path, String fileName) {
     this.path = path;
     this.fileName = fileName;
   }
@@ -46,7 +46,7 @@ class SpreadsheetFileWriter extends AbstractWriter {
    *
    * @param fileName the file name
    */
-  public SpreadsheetFileWriter(String fileName) {
+  public SpreadsheetFileOutputStreamWriter(String fileName) {
     this.fileName = fileName;
   }
 
@@ -97,6 +97,22 @@ class SpreadsheetFileWriter extends AbstractWriter {
     return byteArray;
   }
 
+
+  @Override
+  public FileOutputStream performWrite() {
+    final File file = checkFile();
+    FileOutputStream result;
+
+    try (FileOutputStream fos = new FileOutputStream(file)) {
+      xssfWorkbook.write(fos);
+      result = fos;
+    } catch (IOException e) {
+      throw new IllegalArgumentException(e);
+    }
+
+    return result;
+  }
+
   private File checkFile() {
     if(Objects.nonNull(outputFile)) {
       return outputFile;
@@ -117,6 +133,8 @@ class SpreadsheetFileWriter extends AbstractWriter {
     }
     return file;
   }
+
+
 
 
 }

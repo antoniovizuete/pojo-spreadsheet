@@ -20,7 +20,7 @@ public interface SpreadsheetFactory {
    * @return the spreadsheet
    */
   static Spreadsheet createFileSpreadsheet(File file) {
-    SpreadsheetWriter writer = new SpreadsheetFileWriter(file);
+    SpreadsheetWriter writer = new SpreadsheetFileOutputStreamWriter(file);
     return new SpreadsheetImpl(writer);
   }
 
@@ -31,7 +31,7 @@ public interface SpreadsheetFactory {
    * @return the spreadsheet
    */
   static Spreadsheet createFileSpreadsheet(String fileName) {
-    SpreadsheetWriter writer = new SpreadsheetFileWriter(new File(fileName));
+    SpreadsheetWriter writer = new SpreadsheetFileOutputStreamWriter(new File(fileName));
     return new SpreadsheetImpl(writer);
   }
 
@@ -43,7 +43,7 @@ public interface SpreadsheetFactory {
    * @return the spreadsheet
    */
   static Spreadsheet createFileSpreadsheet(String path, String file) {
-    SpreadsheetWriter writer = new SpreadsheetFileWriter(new File(path + file));
+    SpreadsheetWriter writer = new SpreadsheetFileOutputStreamWriter(new File(path + file));
     return new SpreadsheetImpl(writer);
   }
 
@@ -53,7 +53,7 @@ public interface SpreadsheetFactory {
    * @return the spreadsheet
    */
   public static Spreadsheet createOutputStreamSpreadsheet() {
-    return new SpreadsheetImpl(new SpreadsheetOutputStreamWriter());
+    return new SpreadsheetImpl(new SpreadsheetByteArrayOutputStreamWriter());
   }
 
   /**

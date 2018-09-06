@@ -6,6 +6,7 @@ import io.github.antoniovizuete.pojospreadsheet.utils.iterator.AbstractIntegerSe
 import io.github.antoniovizuete.pojospreadsheet.core.model.Sheet;
 import io.github.antoniovizuete.pojospreadsheet.core.model.Spreadsheet;
 
+import java.io.OutputStream;
 import java.util.Set;
 
 
@@ -96,7 +97,12 @@ public class AbstractSpreadsheet extends AbstractIntegerSet<Sheet> implements Sp
    * @return the current instance.
    */
   public byte[] write() {
-    return writer.print(this, decoration);
+    return ((AbstractWriter)writer).writeSpreadsheet(this, decoration);
+  }
+
+  @Override
+  public OutputStream performWrite() {
+    return ((AbstractWriter)writer).writeSpreadsheet(this);
   }
 
   /**

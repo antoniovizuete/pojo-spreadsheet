@@ -31,6 +31,7 @@ import org.apache.poi.xssf.usermodel.XSSFTextBox;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -49,7 +50,7 @@ import java.util.stream.Stream;
  * @author Antonio Vizuete
  * @since 0.1
  */
-abstract class AbstractWriter implements SpreadsheetWriter {
+abstract class AbstractWriter<T extends OutputStream> implements SpreadsheetWriter<T> {
 
   private static final String STANDARD_SHEET_NAME = "Sheet ";
   private static final int FIRST_PARAM = 0;
@@ -60,19 +61,43 @@ abstract class AbstractWriter implements SpreadsheetWriter {
 
   private ConverterCellDecoration decorationConverter;
 
-  private SpreadsheetDecoration decoration;
-
   private List<Integer> cellIndexesAutosize = new ArrayList<>();
 
-  public byte[] print(Spreadsheet spreadsheet, SpreadsheetDecoration decoration) {
+  /**
+   * Converts the {@link Spreadsheet} to POI Workbook and writes it.
+   *
+   * @param spreadsheet the spreadsheet
+   * @return the generic type instance
+   */
+  T writeSpreadsheet(Spreadsheet spreadsheet) {
+    spreadsheetToPoiWorkbook(spreadsheet);
+    return performWrite();
+  }
+
+
+  /**
+   * Converts the {@link Spreadsheet} to POI Workbook and writes it.
+   *
+   * @param spreadsheet the spreadsheet
+   * @param decoration the spreadsheet decoration
+   * @return the byte array
+   *
+   * @deprecated To be deleted at version 1.0
+   * @see AbstractWriter#writeSpreadsheet(io.github.antoniovizuete.pojospreadsheet.core.model.Spreadsheet)
+   */
+  @Deprecated
+  byte[] writeSpreadsheet(Spreadsheet spreadsheet, SpreadsheetDecoration decoration) {
+    spreadsheetToPoiWorkbook(spreadsheet);
+    return write();
+  }
+
+  private void spreadsheetToPoiWorkbook(Spreadsheet spreadsheet) {
     this.spreadsheet = spreadsheet;
-    this.decoration = decoration;
-    this.decorationConverter = new ConverterCellDecoration(decoration);
+    this.decorationConverter = new ConverterCellDecoration(spreadsheet.getDecoration());
     this.xssfWorkbook = new XSSFWorkbook();
 
     decorationConverter.convert(xssfWorkbook);
     iterateSheets();
-    return write();
   }
 
   private void iterateSheets() {
@@ -316,11 +341,11 @@ abstract class AbstractWriter implements SpreadsheetWriter {
     XSSFTextBox tb = draw.createTextbox((XSSFClientAnchor) anchor);
 
     if (textBox.getBorderStyle() != null) {
-      Color color = decoration.get(decoration.get(textBox.getBorderStyle()).getColor());
+      Color color = spreadsheet.getDecoration().get(spreadsheet.getDecoration().get(textBox.getBorderStyle()).getColor());
       tb.setLineStyleColor(color.getRed(), color.getGreen(), color.getBlue());
-      tb.setLineStyle(decoration.get(textBox.getBorderStyle()).getBorderStyle().ordinal()-1);
+      tb.setLineStyle(spreadsheet.getDecoration().get(textBox.getBorderStyle()).getBorderStyle().ordinal()-1);
       Double width;
-      switch (decoration.get(textBox.getBorderStyle()).getBorderStyle()) {
+      switch (spreadsheet.getDecoration().get(textBox.getBorderStyle()).getBorderStyle()) {
         case THIN:
         case THICK:
         case HAIR:
@@ -344,7 +369,7 @@ abstract class AbstractWriter implements SpreadsheetWriter {
       tb.setTextAutofit(textBox.getAutofit());
     }
     if (textBox.getTextColor() != null) {
-      Color color = decoration.get(textBox.getTextColor());
+      Color color = spreadsheet.getDecoration().get(textBox.getTextColor());
       tb.setFillColor(color.getRed(), color.getGreen(), color.getBlue());
     }
     tb.setText(textBox.getValue());

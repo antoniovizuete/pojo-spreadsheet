@@ -12,8 +12,6 @@ import org.apache.poi.ss.usermodel.CellType;
  * @since 0.1
  */
 public interface Cell extends Styleable<Cell>,IntegerIndex {
-  Integer getIndex();
-
   /**
    * Gets address.
    *

@@ -2,6 +2,7 @@ package io.github.antoniovizuete.pojospreadsheet.core.model;
 
 import io.github.antoniovizuete.pojospreadsheet.core.SpreadsheetDecoration;
 
+import java.io.OutputStream;
 import java.util.Set;
 
 /**
@@ -36,7 +37,18 @@ public interface Spreadsheet {
    * Write byte [ ].
    *
    * @return the byte [ ]
+   *
+   * @deprecated To be deleted at version 1.0
+   * @see Spreadsheet#performWrite()
    */
+  @Deprecated
   byte[] write();
+
+  /**
+   * Converts the {@link Spreadsheet} to POI Workbook and writes it.
+   *
+   * @return the generic type instance
+   */
+  OutputStream performWrite();
 
 }

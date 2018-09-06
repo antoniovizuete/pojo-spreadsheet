@@ -11,7 +11,7 @@ import java.io.OutputStream;
  * @author Antonio Vizuete
  * @since 0.1
  */
-class SpreadsheetOutputStreamWriter extends AbstractWriter {
+class SpreadsheetByteArrayOutputStreamWriter extends AbstractWriter<ByteArrayOutputStream> {
 
   @Override
   public byte[] write() {
@@ -25,5 +25,15 @@ class SpreadsheetOutputStreamWriter extends AbstractWriter {
     return byteArray;
   }
 
-
+  @Override
+  public ByteArrayOutputStream performWrite() {
+    ByteArrayOutputStream result;
+    try (OutputStream baos = new ByteArrayOutputStream()) {
+      xssfWorkbook.write(baos);
+      result = (ByteArrayOutputStream) baos;
+    } catch (IOException e) {
+      throw new IllegalArgumentException(e);
+    }
+    return result;
+  }
 }

@@ -141,14 +141,6 @@ public interface Sheet extends IntegerIndex {
   Set<Row> rows();
 
   /**
-   * Create item row.
-   *
-   * @param index the index
-   * @return the row
-   */
-  Row createItem(Integer index);
-
-  /**
    * Row row.
    *
    * @return the row
