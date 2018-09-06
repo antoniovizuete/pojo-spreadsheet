@@ -25,4 +25,4 @@ Project that wraps `Apache POI` and gives you a semantical use of it. Meaning th
  - `NullPointerException` throwed when it tries to convert null-value cell to POI
 
 ## [0.1] 2018-09-05
-F
+First released version
