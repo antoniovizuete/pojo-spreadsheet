@@ -1,7 +1,13 @@
 # POJO-Spreadsheet
 
 Project that wraps `Apache POI` and gives you a semantical use of it. Meaning that a Spreadsheet is made of Rows, and a Row is made of Cells.
-
+```xml
+<dependency>
+    <groupId>io.github.antoniovizuete</groupId>
+    <artifactId>pojo-spreadsheet</artifactId>
+    <version>0.1.1</version>
+</dependency>
+```
 ---
 ##### Working on documentation
 
