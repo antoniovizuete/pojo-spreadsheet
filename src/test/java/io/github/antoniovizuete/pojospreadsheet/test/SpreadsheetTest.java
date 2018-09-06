@@ -18,7 +18,7 @@ public class SpreadsheetTest {
     // Arrange
     Spreadsheet spreadsheet = SpreadsheetFactory.createFileSpreadsheet(FILENAME);
     spreadsheet.newSheet().name("Hoja 1").row().cell().value("1C1R").nextCell().value("2C1R")
-      .nextRow().cell().value("1C2R").nextCell().value("2C2R");
+      .nextRow().cell().value("1C2R").nextCell().value("2C2R").nextCell();
 
     // Act
     spreadsheet.write();

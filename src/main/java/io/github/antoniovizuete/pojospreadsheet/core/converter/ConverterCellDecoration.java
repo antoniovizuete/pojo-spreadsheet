@@ -95,9 +95,9 @@ public class ConverterCellDecoration {
 
 
   public XSSFCellStyle mergeXSSFCellStyle(Cell cell) {
-    if (cell.getCellStyle() == null && ConverterHelper.isSpecificStyleNull(cell)) {
+    if (Objects.isNull(cell.getCellStyle()) && ConverterHelper.isSpecificStyleNull(cell)) {
       XSSFCellStyle defaultXSSFCellStyle = getDefaultXSSFCellStyle();
-      if (Date.class.equals(cell.getValue().getClass())) {
+      if (Objects.nonNull(cell.getValue()) && Date.class.equals(cell.getValue().getClass())) {
         CellStyle defStyle = decoration.get(DefaultCellStyle.DEFAULT_CELL_STYLE);
         defStyle.setFormat(DefaultFormat.DD_MM_YYYY);
         defaultXSSFCellStyle = cellStyleConverter.getPoiValue(xssfWorkbook, defStyle);
