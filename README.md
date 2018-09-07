@@ -5,7 +5,7 @@ Project that wraps `Apache POI` and gives you a semantical use of it. Meaning th
 <dependency>
     <groupId>io.github.antoniovizuete</groupId>
     <artifactId>pojo-spreadsheet</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
 </dependency>
 ```
 ---
@@ -16,7 +16,7 @@ Project that wraps `Apache POI` and gives you a semantical use of it. Meaning th
  - Deprecated methods
  - Clean the API
 
-## [0.1.1] 2018-09-06
+## [0.1.2] 2018-09-07
 ### Added
  - `Spreadsheet.performWrite()` method has been added in order to return the OutputStream created by the SpreadsheetWriter
 ### Changed
@@ -27,6 +27,8 @@ Project that wraps `Apache POI` and gives you a semantical use of it. Meaning th
  
 ### Deprecated 
  - `Spreadsheet.write()` has been deprecated, use `Spreadsheet.performWrite()` instead.
+ 
+## [0.1.1] 2018-09-06
 ### Fixed
  - `NullPointerException` throwed when it tries to convert null-value cell to POI
 
